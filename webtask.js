@@ -26,8 +26,8 @@ server.get('/', (req, res, next) => {
 // Receives webhooks POSTS from Zapier
 server.post('/', (req, res, next) => {
   const { GROUPME_GROUP_ID, GROUPME_BOT_ID } = req.webtaskContext.data;
-  console.log(JSON.stringify(req.body);
-  res.status(200).send('success'):
+  console.log(JSON.stringify(req.body));
+  res.status(200).send('success');
 });
 
 module.exports = Webtask.fromExpress(server);

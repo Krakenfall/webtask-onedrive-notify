@@ -31,9 +31,12 @@ server.post('/', (req, res, next) => {
   const updated = req.body.updated;
   let message =   `New version available\n`
   message += `Link: ${link}\n`;
-  message += `Created: ${created}`;
+  message += `Created: ${created}\n`;
   message +=  `Updated: ${updated}`;
-  console.log(JSON.stringify(req.body));
+  sendToGroupMe(message, GROUPME_GROUP_ID, GROUPME_BOT_ID,  (err, result) => {
+    if (err) res.status(500).send(`Failed to send to Groupme ${err}`);
+    else res.status(200).send('success');
+  });
   res.status(200).send('success');
 });
 

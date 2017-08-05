@@ -26,9 +26,9 @@ server.get('/', (req, res, next) => {
 // Receives webhooks POSTS from Zapier
 server.post('/', (req, res, next) => {
   const { GROUPME_GROUP_ID, GROUPME_BOT_ID } = req.webtaskContext.data;
-  const link = req.body.link;
-  const created = req.body.create;
-  const updated = req.body.update;
+  const link = req.bod["link"];
+  const created = req.body["create"];
+  const updated = req.body["update"];
   let message =   `New version available\n`
   message += `Link: ${link}\n`;
   message += `Created: ${created}\n`;

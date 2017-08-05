@@ -27,12 +27,13 @@ server.get('/', (req, res, next) => {
 server.post('/', (req, res, next) => {
   const { GROUPME_GROUP_ID, GROUPME_BOT_ID } = req.webtaskContext.data;
   const link = req.body.link;
-  const created = req.body.created;
-  const updated = req.body.updated;
+  const created = req.body.create;
+  const updated = req.body.update;
   let message =   `New version available\n`
   message += `Link: ${link}\n`;
   message += `Created: ${created}\n`;
   message +=  `Updated: ${updated}`;
+  console.log( JSON.stringify(req.body,null, 2))
   console.log(message);
   //sendToGroupMe(message, GROUPME_GROUP_ID, GROUPME_BOT_ID,  (err, result) => {
   //  if (err) res.status(500).send(`Failed to send to Groupme ${err}`);

@@ -26,17 +26,16 @@ server.get('/', (req, res, next) => {
 // Receives webhooks POSTS from Zapier
 server.post('/', (req, res, next) => {
   const { GROUPME_GROUP_ID, GROUPME_BOT_ID } = req.webtaskContext.data;
-  const body = JSON.parse(req.body);
-  const link = body.link;
-  const name = body.name;
-  const created = body.created;
-  const updated = body.updated;
+  const link = req.body.link;
+  const name = req.body.name;
+  const created = req.body.created;
+  const updated = req.body.updated;
   let message =   `New version available\n`;
   message += `Name: ${name}\n`;
   message += `Created: ${created}\n`;
   message +=  `Updated: ${updated}\n`;
   message += `Link: ${link}`;
-  console.log( JSON.stringify(body,null, 2));
+  console.log( JSON.stringify(req.body,null, 2));
   console.log(message);
   sendToGroupMe(message, GROUPME_GROUP_ID, GROUPME_BOT_ID,  (err, result) => {
     if (err) res.status(500).send(`Failed to send to Groupme ${err}`);

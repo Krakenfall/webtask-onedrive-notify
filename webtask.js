@@ -28,12 +28,14 @@ server.post('/', (req, res, next) => {
   const { GROUPME_GROUP_ID, GROUPME_BOT_ID } = req.webtaskContext.data;
   const body = JSON.parse(req.body);
   const link = body.link;
+  const name = body.name;
   const created = body.created;
   const updated = body.updated;
   let message =   `New version available\n`;
-  message += `Link: ${link}\n`;
+  message += `Name: ${name}\n`;
   message += `Created: ${created}\n`;
-  message +=  `Updated: ${updated}`;
+  message +=  `Updated: ${updated}\n`;
+  message += `Link: ${link}`;
   console.log( JSON.stringify(body,null, 2));
   console.log(message);
   //sendToGroupMe(message, GROUPME_GROUP_ID, GROUPME_BOT_ID,  (err, result) => {

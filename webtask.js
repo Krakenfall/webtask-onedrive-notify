@@ -42,7 +42,6 @@ server.post('/', (req, res, next) => {
     if (err) res.status(500).send(`Failed to send to Groupme ${err}`);
     else res.status(200).send('success');
   });
-  res.status(200).send('success');
 });
 
 module.exports = Webtask.fromExpress(server);

@@ -26,7 +26,7 @@ server.get('/', (req, res, next) => {
 // Receives webhooks POSTS from Zapier
 server.post('/', (req, res, next) => {
   const { GROUPME_GROUP_ID, GROUPME_BOT_ID } = req.webtaskContext.data;
-  const link = req.body.link;
+  const link = 'https://1drv.ms/v/s!AqDaIpIOL9UkguYotBkokAqpVnoLSQ';
   const name = req.body.name;
   const created = req.body.created;
   const updated = req.body.updated;

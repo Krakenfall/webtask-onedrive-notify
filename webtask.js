@@ -32,8 +32,6 @@ server.post('/', (req, res, next) => {
   const updated = req.body.updated;
   let message =   `New version available\n`;
   message += `Name: ${name}\n`;
-  message += `Created: ${created}\n`;
-  message +=  `Updated: ${updated}\n`;
   message += `Link: ${link}`;
   console.log( JSON.stringify(req.body,null, 2));
   console.log(message);

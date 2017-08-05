@@ -38,10 +38,10 @@ server.post('/', (req, res, next) => {
   message += `Link: ${link}`;
   console.log( JSON.stringify(body,null, 2));
   console.log(message);
-  //sendToGroupMe(message, GROUPME_GROUP_ID, GROUPME_BOT_ID,  (err, result) => {
-  //  if (err) res.status(500).send(`Failed to send to Groupme ${err}`);
-  //  else res.status(200).send('success');
-  //});
+  sendToGroupMe(message, GROUPME_GROUP_ID, GROUPME_BOT_ID,  (err, result) => {
+    if (err) res.status(500).send(`Failed to send to Groupme ${err}`);
+    else res.status(200).send('success');
+  });
   res.status(200).send('success');
 });
 
